@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="90dip"
+    android:background="@drawable/top_sharp"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/qiandw_system_header_left_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="10.3dp"
+        android:gravity="center" >
+
+        <ImageButton
+            android:id="@+id/qiandw_system_header_left_imagebtn"
+            android:layout_width="50dip"
+            android:layout_height="50dip"
+            android:contentDescription="@string/app_name"
+            android:background="@null"
+            android:src="@drawable/top_back"/>
+
+        <TextView
+            android:id="@+id/qiandw_system_header_left_text"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/qiandw_system_header_left_imagebtn"
+            android:text="@string/back"
+            android:textColor="#ffffff"
+            android:textSize="20sp"
+            android:visibility="gone"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/qiandw_system_header_center_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true" >
+
+		<ImageView
+			android:id="@+id/qiandw_system_header_center_imageview"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_centerVertical="true"
+			android:background="@drawable/down"
+			android:visibility="gone"
+			android:contentDescription="@string/app_name"/>
+
+        <TextView
+            android:id="@+id/qiandw_system_header_center_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+			android:layout_toRightOf="@+id/qiandw_system_header_center_imageview"
+			android:layout_marginLeft="6.6dip"
+			android:layout_centerVertical="true"
+            android:textColor="#ffffff"
+            android:textSize="27sp" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/qiandw_system_header_right_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="10.3dp"
+        android:gravity="center"
+		android:visibility="gone"
+		>
+
+        <TextView
+            android:id="@+id/qiandw_system_header_right_text"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="4.5dp"
+            android:drawablePadding="4.5dp"
+            android:gravity="right"
+            android:text="@string/help"
+            android:textColor="#ffffff"
+            android:textSize="20sp" />
+
+        <ImageButton
+            android:id="@+id/qiandw_system_header_right_imagebtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/app_name"
+            android:background="@drawable/search_per"
+			android:layout_centerInParent="true"
+            android:layout_toRightOf="@+id/qiandw_system_header_right_text"/>
+	</RelativeLayout>
+	<LinearLayout 
+	    android:layout_width="fill_parent"
+	    android:layout_height="5dp"
+	    android:orientation="horizontal"
+	    android:gravity="center"
+	    android:layout_alignParentBottom="true">
+	    <TextView 
+	        android:id="@+id/qiandw_all_new_refresh_left"
+	        android:layout_width="wrap_content"
+	        android:layout_height="fill_parent"
+	        android:background="#e25263"/>
+	    <TextView 
+	        android:id="@+id/qiandw_all_new_refresh_right"
+	        android:layout_width="wrap_content"
+	        android:layout_height="fill_parent"
+	        android:background="#e25263"/>
+	</LinearLayout>
+</RelativeLayout>

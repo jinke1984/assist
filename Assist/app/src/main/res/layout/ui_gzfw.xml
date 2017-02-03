@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ptr="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+    <RelativeLayout
+        android:id="@+id/search_title"
+        android:layout_width="fill_parent"
+        android:layout_height="90dip"
+        android:background="@drawable/top_sharp">
+        <ImageView
+            android:id="@+id/back_btn"
+            android:layout_width="20dip"
+            android:layout_height="20dip"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="13.3dip"
+            android:background="@drawable/top_back"
+            android:contentDescription="@string/app_name" />
+
+        <EditText
+            android:id="@+id/search_edittext"
+            android:layout_width="fill_parent"
+            android:layout_height="65dip"
+            android:layout_marginLeft="20dip"
+            android:layout_marginRight="20dip"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@+id/search_tv"
+            android:layout_toRightOf="@+id/back_btn"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:paddingLeft="6.6dip"
+            android:hint=""
+            android:textSize="25sp"
+            android:textColor="@color/msg_text"
+            android:background="@drawable/gridview_item_normal"/>
+
+        <TextView
+            android:id="@+id/search_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dip"
+            android:text="@string/ss"
+            android:textColor="@color/white"
+            android:textSize="30sp"/>
+    </RelativeLayout>
+
+    <com.handmark.pulltorefresh.library.PullToRefreshListView
+        android:id="@+id/list_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:cacheColorHint="@color/transparent"
+        android:divider="@color/black"
+        android:fadingEdge="none"
+        android:listSelector="@android:color/transparent"
+        android:layout_below="@+id/search_title"
+        ptr:ptrAnimationStyle="flip"
+        ptr:ptrDrawable="@drawable/ptr_default_flip_gray"
+        ptr:ptrHeaderTextColor="@color/msg_time"
+        ptr:ptrIndeterminateDrawable="@drawable/ptr_progress_rotate_gray"
+        ptr:ptrMode="disabled"
+        ptr:ptrOverScroll="false"
+        ptr:ptrShowIndicator="false"/>
+</RelativeLayout>

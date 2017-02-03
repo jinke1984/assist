@@ -1,0 +1,68 @@
+<resources>
+    <string name="app_name">清镇阳光助业</string>
+
+
+    <!--- 公共 -->
+    <string name="back">返回</string>
+    <string name="common_today">今天</string>
+    <string name="help">帮助</string>
+    <string name="shi">是</string>
+    <string name="fou">否</string>
+    <string name="qd">确定</string>
+    <string name="shaxin">刷新</string>
+    <string name="tishi">提示</string>
+    <string name="zcdjtc">再次点击退出</string>
+    <string name="wu">无</string>
+    <string name="bbyszx">版本已是最新!</string>
+    <string name="insertsdcard">对不起，请插入SD卡</string>
+    <string name="notSupport">对不起，暂不支持该操作</string>
+    <string name="Fail">失败</string>
+    <string name="wlywt">当前网络不可用，请检查你的网络设置</string>
+    <string name="tj">提交</string>
+    <string name="tjshbwzqzxjc">您提交的数据不完整，请仔细检查!</string>
+
+    <!-- 登录界面 -->
+    <string name="qsryhm">请输入登录账户</string>
+    <string name="qsrmm">请输入密码</string>
+    <string name="dl">登录</string>
+    <string name="dlcg">登录成功</string>
+    <string name="dlsb">登录失败</string>
+
+    <!-- 主界面 -->
+    <string name="sjcj">数据采集</string>
+    <string name="gzfw">跟踪服务</string>
+    <string name="zcfg">政策法规</string>
+    <string name="jybf">就业帮扶</string>
+    <string name="sy">首页</string>
+    <string name="ss">搜索</string>
+    <string name="tbt">清镇就业局特殊人群就业援助帮扶管理系统</string>
+
+    <!-- Pull to refresh -->
+    <string name="pull_to_refresh_footer_refreshing_label">加载中\u2026</string>
+    <string name="refresh_pull_to_refresh">下拉可以刷新&#8230;</string>
+    <string name="refresh_release_to_refresh">松开可以刷新&#8230;</string>
+    <string name="refresh_refreshing">正在努力加载中&#8230;</string>
+    <string name="ptr_start_pull_label">下拉进行刷新</string>
+    <string name="ptr_start_release_label">松开刷新…</string>
+    <string name="ptr_start_refreshing_label">加载中…</string>
+    <string name="ptr_end_pull_label">上拉显示更多</string>
+    <string name="ptr_end_release_label">松开加载</string>
+    <string name="ptr_end_refreshing_label">加载中…</string>
+    <string name="ptr_end_load_more">加载更多</string>
+
+    <!-- 跟踪服务 -->
+    <string name="qsrycxdsfz">请输入要查询的身份证号码</string>
+    <string name="sfzscl">您输入的身份证号码不符合规范，请仔细检查!</string>
+    <string name="jyqk">就业情况:</string>
+    <string name="fwdx">服务对象电话:</string>
+    <string name="gzqk">跟踪情况:</string>
+    <string name="jyyz">就业援助基本情况:</string>
+    <string name="gzry">工作人员:</string>
+    <string name="dcsj">调查时间:</string>
+    <string name="xz">新增</string>
+    <string name="xg">修改</string>
+    <string name="xzfs">操作方式</string>
+    <string name="jyyz1">就业援助情况:</string>
+    <string name="gzfwxq">跟踪服务详情</string>
+
+</resources>

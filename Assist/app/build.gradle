@@ -1,0 +1,109 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 23
+    buildToolsVersion '23.0.3'
+    useLibrary 'org.apache.http.legacy'
+
+    sourceSets {
+        main {
+            manifest.srcFile 'src/main/AndroidManifest.xml'
+            java.srcDirs = ['src/main/java']
+            resources.srcDirs = ['src/main/java']
+            aidl.srcDirs = ['src/main/aidl']
+            renderscript.srcDirs = ['src/main/java']
+            res.srcDirs = ['src/main/res']
+            assets.srcDirs = ['src/main/assets']
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_7
+        targetCompatibility JavaVersion.VERSION_1_7
+    }
+
+    lintOptions {
+        abortOnError false
+        ignoreWarnings true
+        disable 'MissingTranslation'
+    }
+
+    defaultConfig {
+        applicationId "cn.com.jinke.assist"
+        minSdkVersion 15
+        targetSdkVersion 22
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+
+    //签名文件配置
+    signingConfigs {
+        debug {
+            storeFile file("jinke.keystore")
+            storePassword "8230097"
+            keyAlias "android"
+            keyPassword "8230097"
+        }
+        release {
+            storeFile file("android.keystore")
+            storePassword '8230097'
+            keyAlias 'android'
+            keyPassword '8230097'
+        }
+    }
+
+    buildTypes {
+        release {
+            signingConfig signingConfigs.release
+            debuggable false
+            jniDebuggable false
+            minifyEnabled false //是否混淆
+            //shrinkResources true // 移除无用的resource文件
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            zipAlignEnabled true
+        }
+    }
+
+    productFlavors {
+        rel {
+            buildConfigField "String", "BUILD_NAME", "\"release\""
+            manifestPlaceholders = [COMPILE_DATE: getCompileTime(), CHANNEL_NAME: "release"]
+        }
+    }
+
+    android.applicationVariants.all { variant ->
+        variant.outputs.each { output ->
+            def outputFile = output.outputFile
+            if (outputFile != null && outputFile.name.endsWith('.apk')) {
+                // 输出apk名称为XXXX_v1.0.0_2016-01-15_wandoujia.apk
+                def fileName = "assist_v${defaultConfig.versionName}_${getCompileDate()}_${variant.productFlavors[0].name}.apk"
+                output.outputFile = new File(outputFile.parent, fileName)
+            }
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    compile 'com.android.support:support-v4:23.3.0'
+    compile 'com.android.support:appcompat-v7:23.3.0'
+    compile 'com.android.support:recyclerview-v7:23.3.0'
+    compile 'com.google.code.gson:gson:2.2.4'
+    compile 'org.xutils:xutils:3.3.34'
+    compile 'com.github.bumptech.glide:glide:3.6.0'
+    compile project(':library-refresh')
+    testCompile 'junit:junit:4.12'
+
+}
+
+def getCompileDate() {
+    return new Date().format("yyyy-MM-dd", TimeZone.getTimeZone("UTC"))
+}
+
+def getCompileTime() {
+    return new Date().format("yyyy-MM-dd HH:mm:ss", TimeZone.getTimeZone("UTC"))
+}

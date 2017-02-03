@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="transparent">#00000000</color>
+    <color name="theme_color">#01AFFF</color> <!-- 主色 -->
+    <color name="font_level_1_color">#323232</color> <!-- 主要文字、标题颜色 -->
+    <color name="white">#ffffff</color>
+    <color name="border_color">#E1E1E1</color> <!-- 描边颜色 -->
+    <color name="black">#000000</color>
+    <color name="text_color_normal">#666666</color>
+    <color name="percent_90_transparent">#e0000000</color>
+    <color name="warn_dot_color">#fb5f2f</color>
+    <color name="bottom_bar_bg">#e51c1d20</color>
+    <color name="meet_line">#e4e4e4</color>
+    <color name="item_bg">#d9d9d9</color>
+    <!-- 登录 -->
+    <color name="nmqzdxm">#01BAFF</color> <!-- 南明区重大项目颜色 -->
+    <color name="gly">#6C89FC</color> <!-- 管理云颜色 -->
+    <color name="version">#4a5eb4</color> <!-- 描边颜色 -->
+    <color name="edit_shadow">#7080ff</color> <!-- 描边颜色 -->
+    <color name="hui">#ababab</color> <!--字体灰色 -->
+
+
+    <!-- 消息 -->
+    <color name="msg_background">#ecedf1</color> <!-- 消息背景颜色 -->
+    <color name="msg_text">#333333</color> <!-- 消息文字颜色 -->
+    <color name="msg_time">#666666</color> <!-- 消息时间颜色 --> <!-- 消息 -->
+
+    <color name="home_metting">#ecedf1</color> <!-- 消息背景颜色 -->
+    <color name="home_shengshi">#f44336 </color> <!-- 消息文字颜色 -->
+    <color name="home_qu">#ffaf02 </color> <!-- 消息时间颜色 -->
+
+    <!-- 节点 -->
+    <color name="accepte">#7070ff</color> <!-- 受理颜色 -->
+    <color name="w">#02AFFF</color> <!-- 未受理颜色 -->
+    <color name="a">#7483F6</color> <!-- 受理颜色 -->
+    <color name="b">#FF435E</color> <!-- 办结颜色 -->
+
+    <color name="meetbg">#ecedf1</color>
+    <color name="home_line">#dcdcdc</color>
+    <color name="home_line_1">#f4f4f7</color>
+    <color name="me_line">#c4c4c4</color>
+    <color name="me_font">#007ad9</color>
+</resources>

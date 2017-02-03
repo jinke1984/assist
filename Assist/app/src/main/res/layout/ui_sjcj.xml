@@ -1,0 +1,473 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/brower_top"
+        layout = "@layout/qiandw_system_header_include"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingBottom="13.3dip">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="13.3dip"
+                android:layout_marginRight="13.3dip"
+                android:layout_marginTop="20dip"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="身份证号"
+                    android:textSize="20sp"
+                    android:textColor="@color/black"/>
+                <EditText
+                    android:id="@+id/sfz_et"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dip"
+                    android:layout_marginLeft="13.3dip"
+                    android:textSize="20sp"
+                    android:textColor="@color/black"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="13.3dip"
+                android:layout_marginRight="13.3dip"
+                android:layout_marginTop="20dip"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="姓名"
+                    android:textSize="20sp"
+                    android:textColor="@color/black"/>
+                <EditText
+                    android:id="@+id/name_et"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dip"
+                    android:layout_marginLeft="50dip"
+                    android:textSize="20sp"
+                    android:textColor="@color/black"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="13.3dip"
+                android:layout_marginRight="13.3dip"
+                android:layout_marginTop="20dip"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="性别"
+                    android:textSize="20sp"
+                    android:textColor="@color/black"/>
+                <EditText
+                    android:id="@+id/sex_et"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dip"
+                    android:layout_marginLeft="50dip"
+                    android:textSize="20sp"
+                    android:textColor="@color/black"/>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="13.3dip"
+                android:layout_marginRight="13.3dip"
+                android:layout_marginTop="20dip"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="户籍性质"
+                    android:textSize="20sp"
+                    android:textColor="@color/black"/>
+                <EditText
+                    android:id="@+id/hjxz_et"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dip"
+                    android:layout_marginLeft="13.3dip"
+                    android:textSize="20sp"
+                    android:textColor="@color/black"/>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="13.3dip"
+                android:layout_marginRight="13.3dip"
+                android:layout_marginTop="20dip"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="年龄"
+                    android:textSize="20sp"
+                    android:textColor="@color/black"/>
+                <EditText
+                    android:id="@+id/nl_et"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dip"
+                    android:layout_marginLeft="50dip"
+                    android:textSize="20sp"
+                    android:textColor="@color/black"/>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="13.3dip"
+                android:layout_marginRight="13.3dip"
+                android:layout_marginTop="20dip"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="手机号码"
+                    android:textSize="20sp"
+                    android:textColor="@color/black"/>
+                <EditText
+                    android:id="@+id/sjhm_et"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dip"
+                    android:layout_marginLeft="13.3dip"
+                    android:textSize="20sp"
+                    android:textColor="@color/black"/>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="13.3dip"
+                android:layout_marginRight="13.3dip"
+                android:layout_marginTop="20dip"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="家庭电话"
+                    android:textSize="20sp"
+                    android:textColor="@color/black"/>
+                <EditText
+                    android:id="@+id/jtdh_et"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dip"
+                    android:layout_marginLeft="13.3dip"
+                    android:textSize="20sp"
+                    android:textColor="@color/black"/>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="13.3dip"
+                android:layout_marginRight="13.3dip"
+                android:layout_marginTop="20dip"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="所属社区"
+                    android:textSize="20sp"
+                    android:textColor="@color/black"/>
+                <EditText
+                    android:id="@+id/sscq_et_et"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dip"
+                    android:layout_marginLeft="13.3dip"
+                    android:textSize="20sp"
+                    android:textColor="@color/black"/>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="13.3dip"
+                android:layout_marginRight="13.3dip"
+                android:layout_marginTop="20dip"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="患病情况"
+                    android:textSize="20sp"
+                    android:textColor="@color/black"/>
+                <EditText
+                    android:id="@+id/hbqk_et"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dip"
+                    android:layout_marginLeft="13.3dip"
+                    android:textSize="20sp"
+                    android:textColor="@color/black"/>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="13.3dip"
+                android:layout_marginRight="13.3dip"
+                android:layout_marginTop="20dip"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="家庭住址"
+                    android:textSize="20sp"
+                    android:textColor="@color/black"/>
+                <EditText
+                    android:id="@+id/jtzz_et"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dip"
+                    android:layout_marginLeft="13.3dip"
+                    android:textSize="20sp"
+                    android:textColor="@color/black"/>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="13.3dip"
+                android:layout_marginRight="13.3dip"
+                android:layout_marginTop="20dip"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="文化程度"
+                    android:textSize="20sp"
+                    android:textColor="@color/black"/>
+                <EditText
+                    android:id="@+id/whcd_et"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dip"
+                    android:layout_marginLeft="13.3dip"
+                    android:textSize="20sp"
+                    android:textColor="@color/black"/>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="13.3dip"
+                android:layout_marginRight="13.3dip"
+                android:layout_marginTop="20dip"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="帮扶情况"
+                    android:textSize="20sp"
+                    android:textColor="@color/black"/>
+                <EditText
+                    android:id="@+id/bfqk_et"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dip"
+                    android:layout_marginLeft="13.3dip"
+                    android:textSize="20sp"
+                    android:textColor="@color/black"/>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="13.3dip"
+                android:layout_marginRight="13.3dip"
+                android:layout_marginTop="20dip"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="就业创业证号"
+                    android:textSize="20sp"
+                    android:textColor="@color/black"/>
+                <EditText
+                    android:id="@+id/jycyzh_et"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dip"
+                    android:layout_marginLeft="13.3dip"
+                    android:textSize="20sp"
+                    android:textColor="@color/black"/>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="13.3dip"
+                android:layout_marginRight="13.3dip"
+                android:layout_marginTop="20dip"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="监护人姓名"
+                    android:textSize="20sp"
+                    android:textColor="@color/black"/>
+                <EditText
+                    android:id="@+id/jhrxm_et"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dip"
+                    android:layout_marginLeft="13.3dip"
+                    android:textSize="20sp"
+                    android:textColor="@color/black"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="13.3dip"
+                android:layout_marginRight="13.3dip"
+                android:layout_marginTop="20dip"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="监护人手机"
+                    android:textSize="20sp"
+                    android:textColor="@color/black"/>
+                <EditText
+                    android:id="@+id/jhrsj_et"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dip"
+                    android:layout_marginLeft="13.3dip"
+                    android:textSize="20sp"
+                    android:textColor="@color/black"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="13.3dip"
+                android:layout_marginRight="13.3dip"
+                android:layout_marginTop="20dip"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="监护人电话"
+                    android:textSize="20sp"
+                    android:textColor="@color/black"/>
+                <EditText
+                    android:id="@+id/jhrdh_et"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dip"
+                    android:layout_marginLeft="13.3dip"
+                    android:textSize="20sp"
+                    android:textColor="@color/black"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="13.3dip"
+                android:layout_marginRight="13.3dip"
+                android:layout_marginTop="20dip"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="登记时间"
+                    android:textSize="20sp"
+                    android:textColor="@color/black"/>
+                <EditText
+                    android:id="@+id/djsj_et"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dip"
+                    android:layout_marginLeft="13.3dip"
+                    android:textSize="20sp"
+                    android:textColor="@color/black"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="13.3dip"
+                android:layout_marginRight="13.3dip"
+                android:layout_marginTop="20dip"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="备注"
+                    android:textSize="20sp"
+                    android:textColor="@color/black"/>
+                <EditText
+                    android:id="@+id/bz_et"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dip"
+                    android:layout_marginTop="13.3dip"
+                    android:textSize="20sp"
+                    android:gravity="top"
+                    android:textColor="@color/black"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+
+</LinearLayout>
