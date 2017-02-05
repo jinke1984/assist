@@ -46,6 +46,7 @@ public class MainUI extends ProjectBaseUI {
         if(header != null){
             header.leftLayout.setVisibility(View.GONE);
             header.titleText.setText(getString(R.string.tbt));
+            header.rightLayout.setVisibility(View.GONE);
         }
     }
 
