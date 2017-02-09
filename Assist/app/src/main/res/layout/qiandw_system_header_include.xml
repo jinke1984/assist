@@ -2,7 +2,7 @@
 <RelativeLayout 
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
-    android:layout_height="90dip"
+    android:layout_height="55dip"
     android:background="@drawable/top_sharp"
     android:orientation="vertical" >
 
@@ -17,8 +17,8 @@
 
         <ImageButton
             android:id="@+id/qiandw_system_header_left_imagebtn"
-            android:layout_width="50dip"
-            android:layout_height="50dip"
+            android:layout_width="30dip"
+            android:layout_height="30dip"
             android:contentDescription="@string/app_name"
             android:background="@null"
             android:src="@drawable/top_back"/>
@@ -31,7 +31,7 @@
             android:layout_toRightOf="@+id/qiandw_system_header_left_imagebtn"
             android:text="@string/back"
             android:textColor="#ffffff"
-            android:textSize="20sp"
+            android:textSize="16sp"
             android:visibility="gone"/>
     </RelativeLayout>
 
@@ -58,7 +58,7 @@
 			android:layout_marginLeft="6.6dip"
 			android:layout_centerVertical="true"
             android:textColor="#ffffff"
-            android:textSize="27sp" />
+            android:textSize="16sp" />
 
     </RelativeLayout>
 
@@ -83,7 +83,7 @@
             android:gravity="right"
             android:text="@string/help"
             android:textColor="#ffffff"
-            android:textSize="20sp" />
+            android:textSize="16sp" />
 
         <ImageButton
             android:id="@+id/qiandw_system_header_right_imagebtn"
