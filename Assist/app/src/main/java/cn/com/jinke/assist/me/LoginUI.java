@@ -25,10 +25,10 @@ import cn.com.jinke.assist.me.model.UserCard;
 
 public class LoginUI extends ProjectBaseUI {
 
-    @ViewInject(R.id.account_et)
+    @ViewInject(R.id.account)
     private EditText mAccountET = null;
 
-    @ViewInject(R.id.password_et)
+    @ViewInject(R.id.password)
     private EditText mPasswordET = null;
 
     @ViewInject(R.id.login_button)

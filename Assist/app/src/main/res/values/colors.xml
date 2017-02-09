@@ -4,7 +4,7 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
     <color name="transparent">#00000000</color>
-    <color name="theme_color">#01AFFF</color> <!-- 主色 -->
+    <color name="theme_color">#f49431</color> <!-- 主色 -->
     <color name="font_level_1_color">#323232</color> <!-- 主要文字、标题颜色 -->
     <color name="white">#ffffff</color>
     <color name="border_color">#E1E1E1</color> <!-- 描边颜色 -->

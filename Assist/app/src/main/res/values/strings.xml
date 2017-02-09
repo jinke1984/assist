@@ -35,7 +35,7 @@
     <string name="jybf">就业帮扶</string>
     <string name="sy">首页</string>
     <string name="ss">搜索</string>
-    <string name="tbt">清镇就业局特殊人群就业援助帮扶管理系统</string>
+    <string name="tbt">清镇市特殊人群就业帮扶系统</string>
 
     <!-- Pull to refresh -->
     <string name="pull_to_refresh_footer_refreshing_label">加载中\u2026</string>
