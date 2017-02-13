@@ -43,6 +43,7 @@ public class LoginUI extends ProjectBaseUI {
                 int code = msg.arg1;
                 if(code == 200){
                     MainUI.startActivity(this);
+                    finish();
                 }
                 dismissLoading();
                 break;
