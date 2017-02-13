@@ -65,4 +65,10 @@
     <string name="jyyz1">就业援助情况:</string>
     <string name="gzfwxq">跟踪服务详情</string>
 
+    <!-- 政策法规 -->
+    <string name="xxmc">信息名称:</string>
+    <string name="zz">作者:</string>
+    <string name="ly">来源:</string>
+    <string name="fbsj">发布时间:</string>
+
 </resources>

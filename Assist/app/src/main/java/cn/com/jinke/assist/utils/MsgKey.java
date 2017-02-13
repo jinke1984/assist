@@ -23,4 +23,8 @@ public interface MsgKey {
     public final int GZFW_MSG = GZFW_BASE + 1;
     public final int GZFW_UPLOAD = GZFW_BASE + 2;
     public final int GZFW_REFRESH = GZFW_BASE + 3;
+
+    //----------------- 政策法规 ---------------------
+    public final int ZCFG_BASE = BASE + 4000;
+    public final int ZCFG_MSG = ZCFG_BASE + 1;
 }

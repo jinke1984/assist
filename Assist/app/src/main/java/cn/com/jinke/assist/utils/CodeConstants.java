@@ -29,5 +29,7 @@ public interface CodeConstants {
     public final static String PWD = "pwd";
     public final static String GETSRVLIST = "getsrvlist";
     public final static String SAVESRV = "savesrv";
-
+    public final static String KEYWORD = "keyword";
+    public final static String INFOTYPEID = "infotypeid";
+    public final static String ZCFGLIST = "zcfglist";
 }

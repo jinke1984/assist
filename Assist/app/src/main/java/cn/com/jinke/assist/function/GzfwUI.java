@@ -93,7 +93,7 @@ public class GzfwUI extends ProjectBaseUI implements OnItemClickListener{
         PullToRefreshHelper.initFooter(mPtrListView);
 
         SpannableString hint_string = new SpannableString(getString(R.string.qsrycxdsfz));
-        AbsoluteSizeSpan ass = new AbsoluteSizeSpan(20, true);
+        AbsoluteSizeSpan ass = new AbsoluteSizeSpan(16, true);
         hint_string.setSpan(ass, 0, hint_string.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         mSearchET.setHint(new SpannedString(hint_string));
 
