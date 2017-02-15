@@ -3,8 +3,9 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="150dip"
+    android:paddingBottom="13.3dip"
     android:orientation="vertical"
-    android:background="@color/white">
+    android:background="@color/home_metting">
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -20,14 +21,14 @@
             android:layout_marginRight="8dip"
             android:maxLines="1"
             android:ellipsize="end"
-            android:textSize="20sp"
+            android:textSize="14sp"
             android:textColor="@color/text_color_normal"/>
         <TextView
             android:id="@+id/fwdh_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
-            android:textSize="20sp"
+            android:textSize="14sp"
             android:textColor="@color/text_color_normal"/>
     </RelativeLayout>
     <RelativeLayout
@@ -44,7 +45,7 @@
             android:layout_marginRight="8dip"
             android:maxLines="1"
             android:ellipsize="end"
-            android:textSize="20sp"
+            android:textSize="14sp"
             android:textColor="@color/text_color_normal"/>
         <TextView
             android:id="@+id/jbqk_tv"
@@ -53,7 +54,7 @@
             android:layout_alignParentLeft="true"
             android:layout_below="@+id/gzqk_tv"
             android:layout_marginTop="13.3dip"
-            android:textSize="20sp"
+            android:textSize="14sp"
             android:textColor="@color/text_color_normal"/>
     </RelativeLayout>
     <RelativeLayout
@@ -71,14 +72,14 @@
             android:layout_marginRight="8dip"
             android:maxLines="1"
             android:ellipsize="end"
-            android:textSize="20sp"
+            android:textSize="14sp"
             android:textColor="@color/text_color_normal"/>
         <TextView
             android:id="@+id/dcsj_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
-            android:textSize="20sp"
+            android:textSize="14sp"
             android:textColor="@color/text_color_normal"/>
     </RelativeLayout>
 </LinearLayout>
