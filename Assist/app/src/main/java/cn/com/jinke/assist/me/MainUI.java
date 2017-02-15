@@ -21,17 +21,20 @@ import cn.com.jinke.assist.function.ZcfgUI;
 
 public class MainUI extends ProjectBaseUI {
 
-    @ViewInject(R.id.one_iv)
+    @ViewInject(R.id.sjcj_iv)
     private RelativeLayout mSjcjLayout = null;
 
-    @ViewInject(R.id.two_iv)
-    private RelativeLayout mGzfwLayout = null;
+    @ViewInject(R.id.jybf_iv)
+    private RelativeLayout mJybfLayout = null;
 
-    @ViewInject(R.id.three_iv)
-    private RelativeLayout mZcfgLayout = null;
+    @ViewInject(R.id.gzdb_iv)
+    private RelativeLayout mGzdbLayout = null;
 
     @ViewInject(R.id.zcfg_iv)
-    private RelativeLayout mJtbfLayout = null;
+    private RelativeLayout mZcfgLayout = null;
+
+    @ViewInject(R.id.gzfw_iv)
+    private RelativeLayout mGzfwLayout = null;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -54,20 +57,23 @@ public class MainUI extends ProjectBaseUI {
         aContext.startActivity(intent);
     }
 
-    @Event(value = {R.id.one_iv, R.id.two_iv, R.id.three_iv, R.id.zcfg_iv})
+    @Event(value = {R.id.sjcj_iv, R.id.jybf_iv, R.id.gzdb_iv, R.id.zcfg_iv, R.id.gzfw_iv})
     private void onClick(View view){
         switch (view.getId()){
-            case R.id.one_iv:
+            case R.id.sjcj_iv:
 
                 break;
-            case R.id.two_iv:
+            case R.id.gzfw_iv:
                 GzfwUI.startActivity(this);
                 break;
-            case R.id.three_iv:
+            case R.id.zcfg_iv:
                 ZcfgUI.startActivity(this);
                 break;
-            case R.id.zcfg_iv:
+            case R.id.jybf_iv:
                 JybfUI.startActivity(this);
+                break;
+            case R.id.gzdb_iv:
+                
                 break;
             default:
                 break;

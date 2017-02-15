@@ -38,7 +38,7 @@
                 android:orientation="horizontal">
 
                 <LinearLayout
-                    android:id="@+id/one_iv"
+                    android:id="@+id/sjcj_iv"
                     android:layout_width="0dip"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -61,7 +61,7 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:id="@+id/two_iv"
+                    android:id="@+id/jybf_iv"
                     android:layout_width="0dip"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -85,7 +85,7 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:id="@+id/three_iv"
+                    android:id="@+id/gzdb_iv"
                     android:layout_width="0dip"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -140,7 +140,7 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:id="@+id/jyxx_iv"
+                    android:id="@+id/gzfw_iv"
                     android:layout_width="0dip"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
