@@ -48,6 +48,8 @@ public class MainUI extends ProjectBaseUI {
         if(header != null){
             header.leftLayout.setVisibility(View.GONE);
             header.titleText.setText(getString(R.string.tbt));
+            header.centerIV.setVisibility(View.VISIBLE);
+            header.centerIV.setBackgroundResource(R.drawable.top_image);
             header.rightLayout.setVisibility(View.GONE);
         }
     }
@@ -73,7 +75,7 @@ public class MainUI extends ProjectBaseUI {
                 JybfUI.startActivity(this);
                 break;
             case R.id.gzdb_iv:
-                
+
                 break;
             default:
                 break;
