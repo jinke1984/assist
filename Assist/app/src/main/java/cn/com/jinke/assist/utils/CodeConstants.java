@@ -20,6 +20,7 @@ public interface CodeConstants {
     public final static String B_CODE = "code";
     public final static String B_TITLE = "title";
     public final static String B_ENTITY = "entity";
+    public final static String B_ID = "id";
 
     public final static String DATA = "data";
     public final static String MD5 = "md5";
@@ -32,4 +33,5 @@ public interface CodeConstants {
     public final static String KEYWORD = "keyword";
     public final static String INFOTYPEID = "infotypeid";
     public final static String ZCFGLIST = "zcfglist";
+    public final static String DATAID = "id";
 }

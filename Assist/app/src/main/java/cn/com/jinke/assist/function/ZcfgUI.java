@@ -18,7 +18,9 @@ import cn.com.jinke.assist.R;
 import cn.com.jinke.assist.booter.ProjectBaseUI;
 import cn.com.jinke.assist.function.adapter.ZcfgAdapter;
 import cn.com.jinke.assist.function.manager.ZcfgManager;
+import cn.com.jinke.assist.function.model.Zcfg;
 import cn.com.jinke.assist.manager.PullToRefreshHelper;
+import cn.com.jinke.assist.web.WebUI;
 
 /**
  * Created by apple on 2017/1/19.
@@ -90,6 +92,7 @@ public class ZcfgUI extends ProjectBaseUI implements OnItemClickListener {
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
+        Zcfg zcfg = ZcfgManager.getInstance().getsList().get(position);
+        WebUI.startActivity(this, zcfg.getInfoid(), zcfg.getInfoname());
     }
 }

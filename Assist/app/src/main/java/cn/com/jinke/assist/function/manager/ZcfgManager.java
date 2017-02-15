@@ -76,4 +76,14 @@ public class ZcfgManager implements CodeConstants, MsgKey, UrlSetting {
         });
     }
 
+    public String getZcfgDetail(int aId){
+        String id = String.valueOf(aId);
+        String md5 = MD5Utils.getMD5(id);
+        RequestParams params = new RequestParams(ZCFGYRL);
+        params.addBodyParameter(DATAID, id);
+        params.addParameter(MD5, md5);
+        String url = params.toString();
+        return url;
+    }
+
 }

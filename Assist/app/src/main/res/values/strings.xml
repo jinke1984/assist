@@ -33,6 +33,7 @@
     <string name="gzfw">跟踪服务</string>
     <string name="zcfg">政策法规</string>
     <string name="jybf">就业帮扶</string>
+    <string name="gzdb">工作督办</string>
     <string name="sy">首页</string>
     <string name="ss">搜索</string>
     <string name="tbt">清镇市特殊人群就业帮扶系统</string>
@@ -70,5 +71,6 @@
     <string name="zz">作者:</string>
     <string name="ly">来源:</string>
     <string name="fbsj">发布时间:</string>
+    <string name="gymbcz">该页面不存在，请检查你的地址</string>
 
 </resources>

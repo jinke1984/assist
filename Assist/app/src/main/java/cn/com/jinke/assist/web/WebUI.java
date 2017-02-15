@@ -3,82 +3,89 @@ package cn.com.jinke.assist.web;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Message;
+import android.view.KeyEvent;
 import android.view.View;
+import android.webkit.WebSettings;
+
+import org.xutils.view.annotation.ViewInject;
 
 import cn.com.jinke.assist.R;
 import cn.com.jinke.assist.booter.ProjectBaseUI;
-import cn.com.jinke.assist.utils.MessageProxy;
+import cn.com.jinke.assist.customview.ProgressWebView;
+import cn.com.jinke.assist.function.manager.ZcfgManager;
 
 /**
- * Created by apple on 2017/1/23.
+ * Created by jinke on 2017/2/13.
  */
 
 public class WebUI extends ProjectBaseUI {
 
-//    @ViewInject(R.id.webview)
-//    private ProgressWebView mWebView = null;
+    @ViewInject(R.id.webview)
+    private ProgressWebView mProgressWebView;
 
-    private final int MESSAGE_FAIL = 10001;
+    private int mId = 0;
+    private String mTitle = null;
 
-    @Override
-    protected boolean handleMessage(Message msg) {
-        switch (msg.what){
-            case MESSAGE_FAIL:
-                dismissLoading();
-                showToast("数据保存错误!");
-                break;
-            default:
-                break;
-        }
-        return super.handleMessage(msg);
-    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        registerMessages(MESSAGE_FAIL);
-        setContentView(R.layout.ui_sjcj);
+        setContentView(R.layout.ui_web);
     }
 
-    public static void startWebActivity(Context aContext) {
+    public static final void startActivity(Context aContext, int aId, String aTitle){
         Intent intent = new Intent(aContext, WebUI.class);
+        intent.putExtra(B_ID, aId);
+        intent.putExtra(B_TITLE, aTitle);
         aContext.startActivity(intent);
+    }
+
+    @Override
+    protected void onPreInitView() {
+        Intent intent = getIntent();
+        if(intent != null){
+            mId = intent.getIntExtra(B_ID, mId);
+            mTitle = intent.getStringExtra(B_TITLE);
+        }
     }
 
     @Override
     protected void onInitView() {
         Header header = getHeader();
         if(header != null){
-            header.titleText.setText(getString(R.string.sjcj));
-            header.leftImageBtn.setVisibility(View.VISIBLE);
+            header.titleText.setText(mTitle);
             header.rightLayout.setVisibility(View.GONE);
-            header.leftText.setVisibility(View.GONE);
-            header.rightLayout.setVisibility(View.VISIBLE);
-            header.rightImageBtn.setVisibility(View.GONE);
-            header.rightText.setVisibility(View.VISIBLE);
-            header.rightText.setText("保存");
-            header.rightLayout.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    showLoading();
-                    MessageProxy.sendEmptyMessageDelay(MESSAGE_FAIL, 4000);
-                }
-            });
-
         }
 
-//        mWebView.getSettings().setDefaultTextEncodingName("UTF-8");
-//        mWebView.getSettings().setUseWideViewPort(false);
-//        mWebView.getSettings().setSupportZoom(true);
-//        mWebView.getSettings().setJavaScriptEnabled(true);
-//        mWebView.getSettings().setDomStorageEnabled(true);
-//        mWebView.getSettings().setSavePassword(false);
+        if(mId == 0){
+            finish();
+            showToast(R.string.gymbcz);
+        }
+
+        // 开启硬件加速
+        getWindow().addFlags(0x01000000);
+
+        WebSettings settings = mProgressWebView.getSettings();
+
+        settings.setJavaScriptEnabled(true);
+        settings.setLoadsImagesAutomatically(true);
+        settings.setLoadWithOverviewMode(true);
+        settings.setLayoutAlgorithm(WebSettings.LayoutAlgorithm.SINGLE_COLUMN);
+        mProgressWebView.setScrollBarStyle(View.SCROLLBARS_INSIDE_OVERLAY);
+
+        String url = ZcfgManager.getInstance().getZcfgDetail(mId);
+        mProgressWebView.loadUrl(url);
     }
 
     @Override
-    protected void onInitData() {
-//        String url = "http://112.74.181.48:72/adminpages/PersonalFile_form.aspx";
-//        mWebView.loadUrl(url);
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (mProgressWebView.canGoBack() && event.getKeyCode() == KeyEvent.KEYCODE_BACK && event.getRepeatCount() == 0) {
+            mProgressWebView.goBack();
+            if (!mProgressWebView.canGoBack()) {
+                finish();
+            }
+            return true;
+        }
+        return super.onKeyDown(keyCode, event);
     }
 }

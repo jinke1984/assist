@@ -14,7 +14,6 @@ import cn.com.jinke.assist.booter.ProjectBaseUI;
 import cn.com.jinke.assist.function.GzfwUI;
 import cn.com.jinke.assist.function.JybfUI;
 import cn.com.jinke.assist.function.ZcfgUI;
-import cn.com.jinke.assist.web.WebUI;
 
 /**
  * Created by apple on 2017/1/19.
@@ -31,7 +30,7 @@ public class MainUI extends ProjectBaseUI {
     @ViewInject(R.id.three_iv)
     private RelativeLayout mZcfgLayout = null;
 
-    @ViewInject(R.id.four_iv)
+    @ViewInject(R.id.zcfg_iv)
     private RelativeLayout mJtbfLayout = null;
 
     @Override
@@ -55,11 +54,11 @@ public class MainUI extends ProjectBaseUI {
         aContext.startActivity(intent);
     }
 
-    @Event(value = {R.id.one_iv, R.id.two_iv, R.id.three_iv, R.id.four_iv})
+    @Event(value = {R.id.one_iv, R.id.two_iv, R.id.three_iv, R.id.zcfg_iv})
     private void onClick(View view){
         switch (view.getId()){
             case R.id.one_iv:
-                WebUI.startWebActivity(this);
+
                 break;
             case R.id.two_iv:
                 GzfwUI.startActivity(this);
@@ -67,7 +66,7 @@ public class MainUI extends ProjectBaseUI {
             case R.id.three_iv:
                 ZcfgUI.startActivity(this);
                 break;
-            case R.id.four_iv:
+            case R.id.zcfg_iv:
                 JybfUI.startActivity(this);
                 break;
             default:

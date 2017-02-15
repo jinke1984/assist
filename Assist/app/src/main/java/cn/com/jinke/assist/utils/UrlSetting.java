@@ -8,5 +8,6 @@ package cn.com.jinke.assist.utils;
 public interface UrlSetting {
 
     public final static String BASURL="http://112.74.181.48:72/api/default.aspx";
+    public final static String ZCFGYRL = "http://112.74.181.48:72/api/zcfg.aspx";
 
 }
