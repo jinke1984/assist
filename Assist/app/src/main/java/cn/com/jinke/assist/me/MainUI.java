@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.RelativeLayout;
+import android.view.KeyEvent;
 
 import org.xutils.view.annotation.Event;
 import org.xutils.view.annotation.ViewInject;
@@ -35,6 +36,8 @@ public class MainUI extends ProjectBaseUI {
 
     @ViewInject(R.id.gzfw_iv)
     private RelativeLayout mGzfwLayout = null;
+
+    private long mLastPressBackTime;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -80,5 +83,21 @@ public class MainUI extends ProjectBaseUI {
             default:
                 break;
         }
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (event.getAction() == KeyEvent.ACTION_DOWN && keyCode == KeyEvent.KEYCODE_BACK) {
+            long current = System.currentTimeMillis();
+            if (current - mLastPressBackTime > 2000) {
+                mLastPressBackTime = current;
+                showToast(R.string.zcdjtc);
+            }
+            else {
+                finish();
+            }
+            return true;
+        }
+        return super.onKeyDown(keyCode, event);
     }
 }
