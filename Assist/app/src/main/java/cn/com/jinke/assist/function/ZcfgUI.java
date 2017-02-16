@@ -97,7 +97,7 @@ public class ZcfgUI extends ProjectBaseUI implements OnItemClickListener {
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        Zcfg zcfg = ZcfgManager.getInstance().getsList().get(position);
+        Zcfg zcfg = ZcfgManager.getInstance().getsList().get(position-1);
         WebUI.startActivity(this, zcfg.getInfoid(), zcfg.getInfoname());
     }
 }
