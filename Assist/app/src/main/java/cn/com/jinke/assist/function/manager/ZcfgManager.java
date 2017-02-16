@@ -86,4 +86,10 @@ public class ZcfgManager implements CodeConstants, MsgKey, UrlSetting {
         return url;
     }
 
+    public void clear(){
+        if(sList.size() != 0){
+            sList.clear();
+        }
+    }
+
 }

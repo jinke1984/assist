@@ -59,6 +59,11 @@ public class ZcfgUI extends ProjectBaseUI implements OnItemClickListener {
         registerMessages(MSG);
     }
 
+    @Override
+    protected void onPause() {
+        super.onPause();
+        ZcfgManager.getInstance().clear();
+    }
 
     public static final void startActivity(Context aContext){
         Intent intent = new Intent(aContext, ZcfgUI.class);

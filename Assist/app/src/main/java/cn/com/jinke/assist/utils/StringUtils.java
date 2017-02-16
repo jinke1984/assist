@@ -1,8 +1,13 @@
 package cn.com.jinke.assist.utils;
 
+import android.content.Context;
+import android.text.TextUtils;
+
 import java.text.NumberFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+
+import cn.com.jinke.assist.R;
 
 /**
  * Created by apple on 2016/12/14.
@@ -33,5 +38,15 @@ public class StringUtils implements CodeConstants{
             e.printStackTrace();
         }
         return time;
+    }
+
+    public static String getNullString(Context aContext,String aString){
+        String result = null;
+        if(TextUtils.isEmpty(aString)){
+            result = aContext.getString(R.string.wu);
+        }else{
+            result = aString;
+        }
+        return result;
     }
 }
