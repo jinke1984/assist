@@ -86,8 +86,7 @@ public class MainUI extends ProjectBaseUI {
             if (current - mLastPressBackTime > 2000) {
                 mLastPressBackTime = current;
                 showToast(R.string.zcdjtc);
-            }
-            else {
+            } else {
                 finish();
             }
             return true;
