@@ -28,9 +28,6 @@ public class MainUI extends ProjectBaseUI {
     @ViewInject(R.id.jybf_iv)
     private RelativeLayout mJybfLayout = null;
 
-    @ViewInject(R.id.gzdb_iv)
-    private RelativeLayout mGzdbLayout = null;
-
     @ViewInject(R.id.zcfg_iv)
     private RelativeLayout mZcfgLayout = null;
 
@@ -62,7 +59,7 @@ public class MainUI extends ProjectBaseUI {
         aContext.startActivity(intent);
     }
 
-    @Event(value = {R.id.sjcj_iv, R.id.jybf_iv, R.id.gzdb_iv, R.id.zcfg_iv, R.id.gzfw_iv})
+    @Event(value = {R.id.sjcj_iv, R.id.jybf_iv, R.id.zcfg_iv, R.id.gzfw_iv})
     private void onClick(View view){
         switch (view.getId()){
             case R.id.sjcj_iv:
@@ -76,9 +73,6 @@ public class MainUI extends ProjectBaseUI {
                 break;
             case R.id.jybf_iv:
                 JybfUI.startActivity(this);
-                break;
-            case R.id.gzdb_iv:
-
                 break;
             default:
                 break;
