@@ -4,12 +4,16 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Message;
+import android.os.Handler;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ImageView;
+import android.widget.ListView;
 
 import com.handmark.pulltorefresh.library.PullToRefreshListView;
+import com.handmark.pulltorefresh.library.PullToRefreshBase;
+import com.handmark.pulltorefresh.library.PullToRefreshBase.OnRefreshListener2;
 
 import org.json.JSONException;
 import org.xutils.view.annotation.ViewInject;
@@ -26,7 +30,7 @@ import cn.com.jinke.assist.web.WebUI;
  * Created by apple on 2017/1/19.
  */
 
-public class ZcfgUI extends ProjectBaseUI implements OnItemClickListener {
+public class ZcfgUI extends ProjectBaseUI implements OnItemClickListener, OnRefreshListener2<ListView>{
 
     @ViewInject(R.id.zcfg_no_data_iv)
     private ImageView mNoDataIV;
@@ -45,6 +49,7 @@ public class ZcfgUI extends ProjectBaseUI implements OnItemClickListener {
                 dismissLoading();
                 mZcfgAdapter.setData(ZcfgManager.getInstance().getsList());
                 mZcfgAdapter.notifyDataSetChanged();
+                setFooter();
                 break;
             default:
                 break;
@@ -80,24 +85,85 @@ public class ZcfgUI extends ProjectBaseUI implements OnItemClickListener {
 
         PullToRefreshHelper.initHeader(mListView);
         PullToRefreshHelper.initFooter(mListView);
+        mListView.setOnRefreshListener(this);
         mZcfgAdapter = new ZcfgAdapter(this);
         mListView.setAdapter(mZcfgAdapter);
         mListView.setOnItemClickListener(this);
+
+        setFooter();
     }
 
     @Override
     protected void onInitData() {
-        showLoading();
-        try{
-            ZcfgManager.getInstance().getZcfgData("", 0);
-        }catch (JSONException e){
-            e.printStackTrace();
+        if(isNetworkConnected()){
+            showLoading();
+            try{
+                ZcfgManager.getInstance().getZcfgData("", 1, true);
+            }catch (JSONException e){
+                e.printStackTrace();
+            }
+        }else{
+            showToast(R.string.wlywt);
         }
+
     }
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         Zcfg zcfg = ZcfgManager.getInstance().getsList().get(position-1);
         WebUI.startActivity(this, zcfg.getInfoid(), zcfg.getInfoname());
+    }
+
+    @Override
+    public void onPullDownToRefresh(final PullToRefreshBase<ListView> refreshView) {
+        if(isNetworkConnected()){
+            try{
+                ZcfgManager.getInstance().getZcfgData("", 1, true);
+            }catch (JSONException e){
+                e.printStackTrace();
+            }
+        }else{
+            showToast(R.string.wlywt);
+            new Handler().post(new Runnable() {
+                @Override
+                public void run() {
+                    refreshView.onRefreshComplete();
+                }
+            });
+        }
+    }
+
+
+    @Override
+    public void onPullUpToRefresh(final PullToRefreshBase<ListView> refreshView) {
+        if(isNetworkConnected()){
+            try{
+                ZcfgManager.getInstance().getZcfgData("", 1, false);
+            }catch (JSONException e){
+                e.printStackTrace();
+            }
+        }else{
+            showToast(R.string.wlywt);
+            new Handler().post(new Runnable() {
+                @Override
+                public void run() {
+                    refreshView.onRefreshComplete();
+                }
+            });
+        }
+    }
+
+    private void setFooter() {
+        if (mZcfgAdapter.getCount() == 0) {
+            mListView.setMode(PullToRefreshBase.Mode.PULL_FROM_START);
+        }
+        else {
+            if (ZcfgManager.isFinish()) {
+                mListView.setMode(PullToRefreshBase.Mode.PULL_FROM_START);
+            }
+            else {
+                mListView.setMode(PullToRefreshBase.Mode.BOTH);
+            }
+        }
     }
 }

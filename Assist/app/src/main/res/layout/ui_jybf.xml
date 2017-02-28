@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ptr="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white">
@@ -17,5 +18,23 @@
         android:layout_centerVertical="true"
         android:background="@drawable/no_data"
         android:visibility="gone"/>
+
+    <com.handmark.pulltorefresh.library.PullToRefreshListView
+        android:id="@+id/jybf_listview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:cacheColorHint="@color/transparent"
+        android:divider="@color/black"
+        android:dividerPadding="1dip"
+        android:fadingEdge="none"
+        android:listSelector="@android:color/transparent"
+        android:layout_below="@+id/top_zcfg"
+        ptr:ptrAnimationStyle="flip"
+        ptr:ptrDrawable="@drawable/ptr_default_flip_gray"
+        ptr:ptrHeaderTextColor="@color/msg_time"
+        ptr:ptrIndeterminateDrawable="@drawable/ptr_progress_rotate_gray"
+        ptr:ptrMode="disabled"
+        ptr:ptrOverScroll="false"
+        ptr:ptrShowIndicator="false"/>
 
 </RelativeLayout>

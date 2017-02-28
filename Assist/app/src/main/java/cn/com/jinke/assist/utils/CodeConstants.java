@@ -34,4 +34,6 @@ public interface CodeConstants {
     public final static String INFOTYPEID = "infotypeid";
     public final static String ZCFGLIST = "zcfglist";
     public final static String DATAID = "id";
+    public final static String PAGESIZE = "pagesize";
+    public final static String PAGEINDEX = "pageindex";
 }

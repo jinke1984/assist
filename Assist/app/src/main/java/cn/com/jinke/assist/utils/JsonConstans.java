@@ -11,7 +11,7 @@ public interface JsonConstans {
     public final static String RES_CODE = "result";
     public final static String RES_MESSAGE = "resultmsg";
     public final static String RES_DATA = "data";
-    public final static String RES_EXTRA_DATA = "totalCount";
+    public final static String RES_EXTRA_DATA = "totalqty";
     public final static String PAGE_START = "start";
     public final static String PAGE_SIZE = "limit";
     public final static String LIST = "list";
