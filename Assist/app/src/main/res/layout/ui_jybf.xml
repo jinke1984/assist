@@ -28,7 +28,7 @@
         android:dividerPadding="1dip"
         android:fadingEdge="none"
         android:listSelector="@android:color/transparent"
-        android:layout_below="@+id/top_zcfg"
+        android:layout_below="@+id/top_acfg"
         ptr:ptrAnimationStyle="flip"
         ptr:ptrDrawable="@drawable/ptr_default_flip_gray"
         ptr:ptrHeaderTextColor="@color/msg_time"
