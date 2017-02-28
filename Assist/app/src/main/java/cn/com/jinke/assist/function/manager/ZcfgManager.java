@@ -84,18 +84,20 @@ public class ZcfgManager implements CodeConstants, MsgKey, UrlSetting {
 
             @Override
             public void onSuccess(int state, String msg, List<Zcfg> object, int total) {
-                if(state == SUCCESS && object != null){
-                    sList.addAll(object);
-                }
+                if(state == SUCCESS && (object != null && object.size() != 0)){
 
-                if(sTotalCount >= 0){
-                    mPage = mPage + 1;
-                    sTotalCount = total;
-                    int pageCount = sTotalCount/FINAL_PAGE_SIZE;
-                    if(pageCount >= mPage){
-                        sPageStart = sPageStart + FINAL_PAGE_SIZE;
+                    sList.addAll(object);
+
+                    if(sTotalCount >= 0){
+                        mPage = mPage + 1;
+                        sTotalCount = total;
+                        int pageCount = sTotalCount/FINAL_PAGE_SIZE;
+                        if(pageCount >= mPage){
+                            sPageStart = sPageStart + FINAL_PAGE_SIZE;
+                        }
                     }
                 }
+
                 MessageProxy.sendMessage(mMsgCode, state, msg);
             }
         });

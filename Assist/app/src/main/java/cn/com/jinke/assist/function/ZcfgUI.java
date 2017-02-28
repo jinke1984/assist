@@ -47,6 +47,7 @@ public class ZcfgUI extends ProjectBaseUI implements OnItemClickListener, OnRefr
         switch (msg.what){
             case ZCFG_MSG:
                 dismissLoading();
+                mListView.onRefreshComplete();
                 mZcfgAdapter.setData(ZcfgManager.getInstance().getsList());
                 mZcfgAdapter.notifyDataSetChanged();
                 setFooter();
