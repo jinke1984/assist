@@ -9,7 +9,7 @@
         android:id="@+id/xxmc_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8.8dip"
+        android:layout_marginTop="6.5dip"
         android:layout_marginLeft="13.3dip"
         android:layout_marginRight="13.3dip"
         android:textColor="@color/black"
@@ -62,13 +62,13 @@
         android:textSize="14sp"
         android:textStyle="bold"
         android:maxLines="1"
-        android:ellipsize="end"/>
+        android:ellipsize="end"
+        android:paddingBottom="6.5dip"/>
 
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="0.5dip"
         android:background="@color/home_line"
-        android:layout_alignParentBottom="true"
-        android:paddingBottom="8.8dip"/>
+        android:layout_alignParentBottom="true"/>
 
 </RelativeLayout>
