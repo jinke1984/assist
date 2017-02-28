@@ -90,15 +90,15 @@ public class VersionManager implements CodeConstants, UrlSetting {
 			@Override
 			public void onSuccess(int state, String msg, final VersionInfo info, int total) {
 
-				if (info != null && !TextUtils.isEmpty(info.getDownloadPath())) {
+				if (info != null && !TextUtils.isEmpty(info.getFilepath())) {
 					Dispatcher.runOnNewThread(new Runnable() {
 						@Override
 						public void run() {
-							String url = BASURL + "/" + info.getDownloadPath();
+							String url = BASURL + "/" + info.getFilepath();
 
 							long size = getFileSize(url);
 
-							info.setPackageSize(size);
+							info.setFilesize(String.valueOf(size));
 							callback.onCallback(info);
 
 						}
@@ -157,14 +157,14 @@ public class VersionManager implements CodeConstants, UrlSetting {
 	}
 
 	public static void showUpdateDialog(final Context context, final VersionInfo versionInfo) {
-		final long fileSize = Long.valueOf(versionInfo.getPackageSize());
+		final long fileSize = Long.valueOf(versionInfo.getFilesize());
 		if (context == null || versionInfo == null || fileSize <= 0) {
 			return;
 		}
-		String message = String.format("版本：%1$s ，安装包大小：%2$sMB", versionInfo.getAppName(), String.format("%.2f", fileSize / 1024f / 1024f));
-		if (!TextUtils.isEmpty(versionInfo.getMemo())) {
+		String message = String.format("版本：%1$s ，安装包大小：%2$sMB", "Assist", String.format("%.2f", fileSize / 1024f / 1024f));
+		if (!TextUtils.isEmpty(versionInfo.getUpdatecontent())) {
 			try {
-				message += "\n" + versionInfo.getMemo();
+				message += "\n" + versionInfo.getUpdatecontent();
 			}
 			catch (Exception e) {
 				//log("replace error. " + e.toString());
@@ -240,7 +240,7 @@ public class VersionManager implements CodeConstants, UrlSetting {
 	}
 
 	private static void downApkFile(final VersionInfo versionInfo) {
-		long serverSize = getFileSize(BASURL + "/" + versionInfo.getDownloadPath());
+		long serverSize = getFileSize(BASURL + "/" + versionInfo.getFilepath());
 		if (serverSize <= 0) {
 			return;
 		}
@@ -253,7 +253,7 @@ public class VersionManager implements CodeConstants, UrlSetting {
 			isDownload = true;
 			isPause = false;
 			File filePath = new File(StorageManager.getTempDir());
-			String updateVersionName = versionInfo.getAppName() + ".apk";
+			String updateVersionName = "Assist" + ".apk";
 			file = new File(filePath.getAbsolutePath(), updateVersionName);
 			// 判断是否存在文件
 			if (file.exists()) {
@@ -268,7 +268,7 @@ public class VersionManager implements CodeConstants, UrlSetting {
 				file.createNewFile();
 			}
 			byte[] readSize = new byte[256];
-			String fileUrl=BASURL+"/"+versionInfo.getDownloadPath();
+			String fileUrl=BASURL+"/"+versionInfo.getFilepath();
 			if (isDownload) {
 				HttpURLConnection httpConnection = (HttpURLConnection) new URL(fileUrl).openConnection();
 				httpConnection.setRequestProperty("User-Agent", "NetFox");
