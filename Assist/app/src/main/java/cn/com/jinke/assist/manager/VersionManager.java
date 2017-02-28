@@ -83,8 +83,8 @@ public class VersionManager implements CodeConstants, UrlSetting {
 		if (callback == null) {
 			return;
 		}
-		RequestParams params=new RequestParams("升级地址");
-		params.addParameter(COMMAND,"getLastVersion");
+		RequestParams params=new RequestParams(BASURL);
+		params.addParameter(COMMAND,APPUPDATE);
 		x.http().post(params, new CallbackWrapper<VersionInfo>(3) {
 
 			@Override
@@ -112,7 +112,6 @@ public class VersionManager implements CodeConstants, UrlSetting {
 
 			@Override
 			public void onError(Throwable ex, boolean isOnCallback) {
-				//log("getUpdateInfo error. " + ex.toString());
 				callback.onCallback(null);
 
 			}
@@ -135,7 +134,6 @@ public class VersionManager implements CodeConstants, UrlSetting {
 						if (versionInfo != null) {
 							int version = Integer.valueOf(versionInfo.getVersion());
 							if (version > sCurrentVersionCode ) {
-								//CommonSettings.setLastVersionCode(versionInfo.getVersionCode());
 								Dispatcher.runOnUiThread(new Runnable() {
 									@Override
 									public void run() {
@@ -302,7 +300,6 @@ public class VersionManager implements CodeConstants, UrlSetting {
 				file.delete();
 			}
 			e.printStackTrace();
-			//log("downApkFile error. " + e.toString());
 		}
 		finally {
 			try {
@@ -340,9 +337,4 @@ public class VersionManager implements CodeConstants, UrlSetting {
 		intent.setDataAndType(Uri.fromFile(file), "application/vnd.android.package-archive");
 		context.startActivity(intent);
 	}
-
-//	public static void log(String msg) {
-//		AppLogger.d("version", msg, false);
-//	}
-
 }

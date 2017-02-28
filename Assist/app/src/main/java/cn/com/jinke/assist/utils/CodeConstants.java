@@ -36,4 +36,5 @@ public interface CodeConstants {
     public final static String DATAID = "id";
     public final static String PAGESIZE = "pagesize";
     public final static String PAGEINDEX = "pageindex";
+    public final static String APPUPDATE = "appupdatecheck";
 }

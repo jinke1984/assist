@@ -15,6 +15,7 @@ import cn.com.jinke.assist.booter.ProjectBaseUI;
 import cn.com.jinke.assist.function.GzfwUI;
 import cn.com.jinke.assist.function.JybfUI;
 import cn.com.jinke.assist.function.ZcfgUI;
+import cn.com.jinke.assist.manager.VersionManager;
 
 /**
  * Created by apple on 2017/1/19.
@@ -40,6 +41,8 @@ public class MainUI extends ProjectBaseUI {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.ui_main);
+
+        VersionManager.startCheckUpdate();
     }
 
     @Override
