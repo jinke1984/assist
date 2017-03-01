@@ -93,7 +93,7 @@ public class ZcfgManager implements CodeConstants, MsgKey, UrlSetting {
                         sTotalCount = total;
                         int pageCount = sTotalCount/FINAL_PAGE_SIZE;
                         if(pageCount >= mPage){
-                            sPageStart = sPageStart + FINAL_PAGE_SIZE;
+                            sPageStart = sPageStart + 1;
                         }
                     }
                 }

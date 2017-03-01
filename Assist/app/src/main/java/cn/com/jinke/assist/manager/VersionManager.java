@@ -206,8 +206,6 @@ public class VersionManager implements CodeConstants, UrlSetting {
 
 		long fileLength = -1;
 		try {
-
-
 			HttpURLConnection httpConnection = (HttpURLConnection) new URL(url).openConnection();
 			httpConnection.setRequestProperty("User-Agent", "NetFox");
 			int responseCode = httpConnection.getResponseCode();

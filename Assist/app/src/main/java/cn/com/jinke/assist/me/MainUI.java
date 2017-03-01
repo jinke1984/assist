@@ -42,7 +42,7 @@ public class MainUI extends ProjectBaseUI {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.ui_main);
 
-        VersionManager.startCheckUpdate();
+        //VersionManager.startCheckUpdate();
     }
 
     @Override
