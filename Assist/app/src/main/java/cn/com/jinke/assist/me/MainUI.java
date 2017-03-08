@@ -14,6 +14,7 @@ import cn.com.jinke.assist.R;
 import cn.com.jinke.assist.booter.ProjectBaseUI;
 import cn.com.jinke.assist.function.GzfwUI;
 import cn.com.jinke.assist.function.JybfUI;
+import cn.com.jinke.assist.function.XxcjUI;
 import cn.com.jinke.assist.function.ZcfgUI;
 import cn.com.jinke.assist.manager.VersionManager;
 
@@ -66,7 +67,7 @@ public class MainUI extends ProjectBaseUI {
     private void onClick(View view){
         switch (view.getId()){
             case R.id.sjcj_iv:
-
+                XxcjUI.startActivity(this);
                 break;
             case R.id.gzfw_iv:
                 GzfwUI.startActivity(this);
