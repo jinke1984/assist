@@ -34,7 +34,7 @@ public class XxcjUI extends ProjectBaseUI {
     }
 
     public static final void startActivity(Context aContext){
-        Intent intent = new Intent(aContext, WebUI.class);
+        Intent intent = new Intent(aContext, XxcjUI.class);
         aContext.startActivity(intent);
     }
 
