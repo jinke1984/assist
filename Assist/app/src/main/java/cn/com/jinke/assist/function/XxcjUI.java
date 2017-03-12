@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.View;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.webkit.WebSettings;
 
 import org.xutils.view.annotation.ViewInject;
@@ -14,9 +16,7 @@ import cn.com.jinke.assist.R;
 import cn.com.jinke.assist.booter.ProjectBaseUI;
 import cn.com.jinke.assist.customview.ProgressWebView;
 import cn.com.jinke.assist.function.manager.XxcjManager;
-import cn.com.jinke.assist.function.manager.ZcfgManager;
 import cn.com.jinke.assist.me.manager.MasterManager;
-import cn.com.jinke.assist.web.WebUI;
 
 /**
  * Created by jinke on 2017/3/8.
@@ -69,9 +69,21 @@ public class XxcjUI extends ProjectBaseUI {
         settings.setLoadsImagesAutomatically(true);
         settings.setLoadWithOverviewMode(true);
         settings.setLayoutAlgorithm(WebSettings.LayoutAlgorithm.SINGLE_COLUMN);
+        settings.setDefaultTextEncodingName("UTF-8");
+        settings.setUseWideViewPort(false);
+        settings.setSupportZoom(true);
+        settings.setDomStorageEnabled(true);
+        settings.setSavePassword(false);
+        settings.setPluginState(WebSettings.PluginState.ON);
         mProgressWebView.setScrollBarStyle(View.SCROLLBARS_INSIDE_OVERLAY);
-
         mProgressWebView.loadUrl(url);
+        mProgressWebView.setWebViewClient(new WebViewClient() {
+
+            public boolean shouldOverrideUrlLoading(WebView view, String url) {
+                view.loadUrl(url);
+                return true;
+            }
+        });
     }
 
     @Override

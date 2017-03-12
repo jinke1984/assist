@@ -6,6 +6,9 @@ import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
 import android.webkit.WebSettings;
+import android.webkit.WebSettings.PluginState;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 
 import org.xutils.view.annotation.ViewInject;
 
@@ -71,10 +74,22 @@ public class WebUI extends ProjectBaseUI {
         settings.setLoadsImagesAutomatically(true);
         settings.setLoadWithOverviewMode(true);
         settings.setLayoutAlgorithm(WebSettings.LayoutAlgorithm.SINGLE_COLUMN);
+        settings.setDefaultTextEncodingName("UTF-8");
+        settings.setUseWideViewPort(false);
+        settings.setSupportZoom(true);
+        settings.setDomStorageEnabled(true);
+        settings.setSavePassword(false);
+        settings.setPluginState(PluginState.ON);
         mProgressWebView.setScrollBarStyle(View.SCROLLBARS_INSIDE_OVERLAY);
-
         String url = ZcfgManager.getInstance().getZcfgDetail(mId);
         mProgressWebView.loadUrl(url);
+        mProgressWebView.setWebViewClient(new WebViewClient() {
+
+            public boolean shouldOverrideUrlLoading(WebView view, String url) {
+                view.loadUrl(url);
+                return true;
+            }
+        });
     }
 
     @Override
