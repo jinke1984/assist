@@ -66,7 +66,7 @@ public class ZcfgManager implements CodeConstants, MsgKey, UrlSetting {
         if(isRefresh){
             sPageStart = 1;
             mPage = 0;
-            sList.clear();
+            clear();
             sLastRefreshTime = System.currentTimeMillis();
         }
 
