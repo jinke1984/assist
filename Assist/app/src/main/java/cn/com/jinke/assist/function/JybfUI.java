@@ -61,12 +61,6 @@ public class JybfUI extends ProjectBaseUI implements OnItemClickListener, OnRefr
         registerMessages(MSG);
     }
 
-    @Override
-    protected void onPause() {
-        super.onPause();
-        ZcfgManager.getInstance().clear();
-    }
-
     public static final void startActivity(Context aContext){
         Intent intent = new Intent(aContext, JybfUI.class);
         aContext.startActivity(intent);
@@ -84,10 +78,9 @@ public class JybfUI extends ProjectBaseUI implements OnItemClickListener, OnRefr
         PullToRefreshHelper.initFooter(mListView);
 
         mListView.setOnRefreshListener(this);
+        mListView.setOnItemClickListener(this);
         mZcfgAdapter = new ZcfgAdapter(this);
         mListView.setAdapter(mZcfgAdapter);
-        mListView.setOnItemClickListener(this);
-
         setFooter();
     }
 
