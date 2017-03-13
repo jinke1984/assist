@@ -85,7 +85,7 @@ public class VersionManager implements CodeConstants, UrlSetting {
 		}
 		RequestParams params=new RequestParams(BASURL);
 		params.addParameter(COMMAND,APPUPDATE);
-		x.http().post(params, new CallbackWrapper<VersionInfo>(3) {
+		x.http().post(params, new CallbackWrapper<VersionInfo>(2) {
 
 			@Override
 			public void onSuccess(int state, String msg, final VersionInfo info, int total) {
