@@ -20,6 +20,7 @@
     <string name="wlywt">当前网络不可用，请检查你的网络设置</string>
     <string name="tj">提交</string>
     <string name="tjshbwzqzxjc">您提交的数据不完整，请仔细检查!</string>
+    <string name="xgcg">操作成功</string>
 
     <!-- 登录界面 -->
     <string name="qsryhm">请输入登录账户</string>

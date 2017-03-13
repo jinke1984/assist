@@ -81,6 +81,7 @@ public class GzfwManager implements CodeConstants, MsgKey, UrlSetting {
         jsonObject.put("helpcircs", helpcircs);
         jsonObject.put("staff", staff);
         jsonObject.put("examinetime", examinetime);
+        jsonObject.put("pic", "");
         String md5 = MD5Utils.getMD5(jsonObject.toString());
         RequestParams params = new RequestParams(BASURL);
         params.addParameter(COMMAND,SAVESRV);

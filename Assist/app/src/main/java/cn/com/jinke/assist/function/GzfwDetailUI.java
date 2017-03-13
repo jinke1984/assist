@@ -53,7 +53,9 @@ public class GzfwDetailUI extends ProjectBaseUI {
         switch (msg.what){
             case GZFW_UPLOAD:
                 dismissLoading();
+                showToast(R.string.xgcg);
                 MessageProxy.sendEmptyMessage(GZFW_REFRESH);
+                finish();
                 break;
             default:
                 break;
