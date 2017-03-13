@@ -28,10 +28,11 @@ public class XxcjManager implements UrlSetting, CodeConstants {
         return instance;
     }
 
-    public String getXxcjUrl(String aUserId){
+    public String getXxcjUrl(String aUserId, int id){
         String url = "";
         RequestParams params = new RequestParams(COLLECT);
-        params.addParameter(DATAID, aUserId);
+        params.addParameter(DATAID, id);
+        params.addParameter(UUID, aUserId);
         url = params.toString();
         return url;
     }

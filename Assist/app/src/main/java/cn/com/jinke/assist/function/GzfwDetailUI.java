@@ -7,10 +7,15 @@ import android.os.Message;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.DatePicker;
+import android.app.DatePickerDialog;
 
 import org.json.JSONException;
 import org.xutils.view.annotation.Event;
 import org.xutils.view.annotation.ViewInject;
+
+import java.util.Calendar;
 
 import cn.com.jinke.assist.R;
 import cn.com.jinke.assist.booter.ProjectBaseUI;
@@ -40,11 +45,17 @@ public class GzfwDetailUI extends ProjectBaseUI {
     private EditText mRYET = null;
 
     @ViewInject(R.id.dcsj_et)
-    private EditText mDHET = null;
+    private TextView mDHET = null;
+
+    private Calendar mCalendar = null;
 
     private Gzfw mGzfw = null;
     private boolean isShow = false;
     private int mEntityid = 0;   //跟踪服务数据的ID，新增时值传0，修改时这个值大于0
+
+    private int year;
+    private int month;
+    private int day;
 
     private int[] MSG = new int[]{GZFW_UPLOAD};
 
@@ -89,6 +100,10 @@ public class GzfwDetailUI extends ProjectBaseUI {
 
     @Override
     protected void onInitData() {
+        mCalendar = Calendar.getInstance();
+        year = mCalendar.get(Calendar.YEAR);
+        month = mCalendar.get(Calendar.MONTH);
+        day = mCalendar.get(Calendar.DAY_OF_MONTH);
         Intent intent = getIntent();
         if(intent != null){
             mGzfw = (Gzfw)intent.getSerializableExtra(B_ENTITY);
@@ -106,7 +121,7 @@ public class GzfwDetailUI extends ProjectBaseUI {
         }
     }
 
-    @Event(value = R.id.okbtn)
+    @Event(value = {R.id.okbtn, R.id.dcsj_et}, type = View.OnClickListener.class)
     private void onViewClick(View view){
         switch (view.getId()){
             case R.id.okbtn:
@@ -130,6 +145,15 @@ public class GzfwDetailUI extends ProjectBaseUI {
                 }catch(JSONException e){
                     e.printStackTrace();
                 }
+                break;
+            case R.id.dcsj_et:
+                new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
+
+                    @Override
+                    public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+
+                    }
+                }, year, month, day).show();
                 break;
             default:
                 break;

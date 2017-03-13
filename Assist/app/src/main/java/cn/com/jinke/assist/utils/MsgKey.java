@@ -27,4 +27,8 @@ public interface MsgKey {
     //----------------- 政策法规 ---------------------
     public final int ZCFG_BASE = BASE + 4000;
     public final int ZCFG_MSG = ZCFG_BASE + 1;
+
+    //----------------- 查找人 -----------------------
+    public final int PERSION_BASE = BASE + 5000;
+    public final int PERSION_MSG = PERSION_BASE + 1;
 }

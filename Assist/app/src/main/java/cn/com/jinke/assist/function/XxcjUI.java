@@ -27,14 +27,17 @@ public class XxcjUI extends ProjectBaseUI {
     @ViewInject(R.id.webview)
     private ProgressWebView mProgressWebView;
 
+    private int mId = 0;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.ui_web);
     }
 
-    public static final void startActivity(Context aContext){
+    public static final void startActivity(Context aContext, int id){
         Intent intent = new Intent(aContext, XxcjUI.class);
+        intent.putExtra(B_ID, id);
         aContext.startActivity(intent);
     }
 
@@ -46,14 +49,16 @@ public class XxcjUI extends ProjectBaseUI {
     @Override
     protected void onInitView() {
         Header header = getHeader();
-        if(header != null){
+        Intent intent = getIntent();
+        if(header != null && intent != null){
             header.titleText.setText(R.string.sjcj);
             header.rightLayout.setVisibility(View.GONE);
+            mId = intent.getIntExtra(B_ID, mId);
         }
 
 
         String userId = MasterManager.getInstance().getUserCard().getUserid();
-        String url = XxcjManager.getInstance().getXxcjUrl(userId);
+        String url = XxcjManager.getInstance().getXxcjUrl(userId, mId);
 
         if(TextUtils.isEmpty(url)){
             finish();

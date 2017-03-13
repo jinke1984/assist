@@ -34,7 +34,12 @@ public interface CodeConstants {
     public final static String INFOTYPEID = "infotypeid";
     public final static String ZCFGLIST = "zcfglist";
     public final static String DATAID = "id";
+    public final static String UUID = "uid";
     public final static String PAGESIZE = "pagesize";
     public final static String PAGEINDEX = "pageindex";
     public final static String APPUPDATE = "appupdatecheck";
+    public final static String COMMUNITYID = "communityid";
+    public final static String ENTITYTYPE = "entitytype";
+    public final static String GETPERSIONLIST = "GetPersonalProfileList";
+
 }
