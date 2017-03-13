@@ -94,10 +94,8 @@ public class VersionManager implements CodeConstants, UrlSetting {
 					Dispatcher.runOnNewThread(new Runnable() {
 						@Override
 						public void run() {
-							String url = BASURL + "/" + info.getFilepath();
-
+							String url = info.getFilepath();
 							long size = getFileSize(url);
-
 							info.setFilesize(String.valueOf(size));
 							callback.onCallback(info);
 
@@ -161,7 +159,7 @@ public class VersionManager implements CodeConstants, UrlSetting {
 		if (context == null || versionInfo == null || fileSize <= 0) {
 			return;
 		}
-		String message = String.format("版本：%1$s ，安装包大小：%2$sMB", "Assist", String.format("%.2f", fileSize / 1024f / 1024f));
+		String message = String.format("版本：%1$s ，安装包大小：%2$sMB", "v"+versionInfo.getVersion(), String.format("%.2f", fileSize / 1024f / 1024f));
 		if (!TextUtils.isEmpty(versionInfo.getUpdatecontent())) {
 			try {
 				message += "\n" + versionInfo.getUpdatecontent();
@@ -173,7 +171,7 @@ public class VersionManager implements CodeConstants, UrlSetting {
 		}
 		UpdateDialog.Builder builder = new UpdateDialog.Builder(context);
 		builder.setMessage(message);
-		//builder.setCancelable(versionInfo.get() < sCurrentVersionCode);
+		builder.setCancelable(Integer.valueOf(versionInfo.getVersion()) < sCurrentVersionCode);
 		final UpdateDialog dialog = builder.create();
 		builder.setCancelListener(new OnClickListener() {
 
@@ -238,7 +236,7 @@ public class VersionManager implements CodeConstants, UrlSetting {
 	}
 
 	private static void downApkFile(final VersionInfo versionInfo) {
-		long serverSize = getFileSize(BASURL + "/" + versionInfo.getFilepath());
+		long serverSize = getFileSize(versionInfo.getFilepath());
 		if (serverSize <= 0) {
 			return;
 		}
@@ -266,7 +264,7 @@ public class VersionManager implements CodeConstants, UrlSetting {
 				file.createNewFile();
 			}
 			byte[] readSize = new byte[256];
-			String fileUrl=BASURL+"/"+versionInfo.getFilepath();
+			String fileUrl=versionInfo.getFilepath();
 			if (isDownload) {
 				HttpURLConnection httpConnection = (HttpURLConnection) new URL(fileUrl).openConnection();
 				httpConnection.setRequestProperty("User-Agent", "NetFox");
