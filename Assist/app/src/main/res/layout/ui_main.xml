@@ -56,8 +56,7 @@
                         android:layout_marginTop="13.3dip"
                         android:text="@string/sjcj"
                         android:textColor="@color/black"
-                        android:textSize="16sp"
-                        android:textStyle="bold" />
+                        android:textSize="16sp" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -79,8 +78,7 @@
                         android:layout_marginTop="13.3dip"
                         android:text="@string/gzdb"
                         android:textColor="@color/black"
-                        android:textSize="16sp"
-                        android:textStyle="bold" />
+                        android:textSize="16sp" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -103,8 +101,7 @@
                         android:layout_marginTop="13.3dip"
                         android:text="@string/jybf"
                         android:textColor="@color/black"
-                        android:textSize="16sp"
-                        android:textStyle="bold" />
+                        android:textSize="16sp"/>
                 </LinearLayout>
 
                 <LinearLayout
@@ -126,8 +123,7 @@
                         android:layout_marginTop="13.3dip"
                         android:text="@string/zcfg"
                         android:textColor="@color/black"
-                        android:textSize="16sp"
-                        android:textStyle="bold" />
+                        android:textSize="16sp"/>
                 </LinearLayout>
 
             </LinearLayout>
