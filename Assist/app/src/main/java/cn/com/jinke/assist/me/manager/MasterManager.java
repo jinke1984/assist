@@ -4,7 +4,7 @@ import cn.com.jinke.assist.database.DbManager;
 import cn.com.jinke.assist.me.model.UserCard;
 
 /**
- * Created by apple on 2017/1/19.
+ * Created by jinke on 2017/1/19.
  */
 
 public class MasterManager {
@@ -47,6 +47,16 @@ public class MasterManager {
         UserCard userCard = DbManager.getCommonDb().getTableUserCard().getUserCard();
         if(userCard != null){
             setUserCard(userCard);
+        }
+    }
+
+    /**
+     * 退出的方法
+     */
+    public void logout(){
+        if(getUserCard() != null){
+            setUserCard(null);
+            DbManager.getCommonDb().getTableUserCard().clearData();
         }
     }
 }
