@@ -31,4 +31,9 @@ public interface MsgKey {
     //----------------- 查找人 -----------------------
     public final int PERSION_BASE = BASE + 5000;
     public final int PERSION_MSG = PERSION_BASE + 1;
+
+
+    //----------------- 首页数据刷新 ----------------
+    public final int MAINPAGE_BASE = BASE + 6000;
+    public final int MAINPAGE_MSG = MAINPAGE_BASE + 1;
 }

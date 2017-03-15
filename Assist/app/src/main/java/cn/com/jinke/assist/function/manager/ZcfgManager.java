@@ -25,6 +25,8 @@ public class ZcfgManager implements CodeConstants, MsgKey, UrlSetting {
 
     private List<Zcfg> sList = new ArrayList<>();
 
+    private List<Zcfg> mMainPageList = new ArrayList<>();
+
     public static ZcfgManager instance;
     private final static int FINAL_PAGE_SIZE = 10;    //服务器一次推送10条数据下来
     public static long sLastRefreshTime; // 上次刷新时间
@@ -53,6 +55,46 @@ public class ZcfgManager implements CodeConstants, MsgKey, UrlSetting {
 
     public void setsList(List<Zcfg> sList) {
         this.sList = sList;
+    }
+
+    public List<Zcfg> getMainPageList() {
+        return mMainPageList;
+    }
+
+    public void setMainPageList(List<Zcfg> mMainPageList) {
+        this.mMainPageList = mMainPageList;
+    }
+
+    /**
+     * 首页公开信息的拉取
+     * @param aKeyword
+     * @param aInfotypeid
+     * @throws JSONException
+     */
+    public void getMainPageZcfgData(String aKeyword, int aInfotypeid) throws JSONException{
+
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put(KEYWORD, aKeyword);
+        jsonObject.put(INFOTYPEID, aInfotypeid);
+        jsonObject.put(PAGESIZE, FINAL_PAGE_SIZE);
+        jsonObject.put(PAGEINDEX, 1);
+        String md5 = MD5Utils.getMD5(jsonObject.toString());
+        RequestParams params = new RequestParams(BASURL);
+        params.addParameter(COMMAND,ZCFGLIST);
+        params.addParameter(DATA, jsonObject);
+        params.addParameter(MD5, md5);
+        x.http().post(params, new CallbackWrapper<List<Zcfg>>(MAINPAGE_MSG, 2){
+
+            @Override
+            public void onSuccess(int state, String msg, List<Zcfg> object, int total) {
+
+                if(state == SUCCESS && (object != null && object.size() != 0)){
+                    mMainPageList.addAll(object);
+                }
+
+                MessageProxy.sendMessage(mMsgCode, state, msg);
+            }
+        });
     }
 
     /**
@@ -116,6 +158,12 @@ public class ZcfgManager implements CodeConstants, MsgKey, UrlSetting {
     public void clear(){
         if(sList.size() != 0){
             sList.clear();
+        }
+    }
+
+    public void mainPageClear(){
+        if(mMainPageList.size() != 0){
+            mMainPageList.clear();
         }
     }
 

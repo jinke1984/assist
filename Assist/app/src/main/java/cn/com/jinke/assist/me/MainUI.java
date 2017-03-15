@@ -3,10 +3,14 @@ package cn.com.jinke.assist.me;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Message;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.RelativeLayout;
 import android.view.KeyEvent;
 
+import org.json.JSONException;
 import org.xutils.view.annotation.Event;
 import org.xutils.view.annotation.ViewInject;
 
@@ -15,15 +19,19 @@ import cn.com.jinke.assist.booter.ProjectBaseUI;
 import cn.com.jinke.assist.function.GzfwUI;
 import cn.com.jinke.assist.function.JybfUI;
 import cn.com.jinke.assist.function.SearchUI;
-import cn.com.jinke.assist.function.XxcjUI;
+import cn.com.jinke.assist.customview.ListViewForScrollView;
 import cn.com.jinke.assist.function.ZcfgUI;
+import cn.com.jinke.assist.function.manager.ZcfgManager;
+import cn.com.jinke.assist.function.model.Zcfg;
 import cn.com.jinke.assist.manager.VersionManager;
+import cn.com.jinke.assist.me.adapter.MessageAdapter;
+import cn.com.jinke.assist.web.WebUI;
 
 /**
  * Created by apple on 2017/1/19.
  */
 
-public class MainUI extends ProjectBaseUI {
+public class MainUI extends ProjectBaseUI implements OnItemClickListener {
 
     @ViewInject(R.id.sjcj_iv)
     private RelativeLayout mSjcjLayout = null;
@@ -37,14 +45,33 @@ public class MainUI extends ProjectBaseUI {
     @ViewInject(R.id.gzfw_iv)
     private RelativeLayout mGzfwLayout = null;
 
+    @ViewInject(R.id.listview)
+    private ListViewForScrollView mListView = null;
+
+    private MessageAdapter mAdapter = null;
     private long mLastPressBackTime;
+    private int[] MSG = new int[]{MAINPAGE_MSG};
+
+    @Override
+    protected boolean handleMessage(Message msg) {
+        switch (msg.what){
+            case MAINPAGE_MSG:
+                dismissLoading();
+                mAdapter.setData(ZcfgManager.getInstance().getMainPageList());
+                mAdapter.notifyDataSetChanged();
+                break;
+            default:
+                break;
+        }
+        return super.handleMessage(msg);
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.ui_main);
-
-        VersionManager.startCheckUpdate();
+        registerMessages(MSG);
+        //VersionManager.startCheckUpdate();
     }
 
     @Override
@@ -56,6 +83,24 @@ public class MainUI extends ProjectBaseUI {
             header.centerIV.setVisibility(View.VISIBLE);
             header.centerIV.setBackgroundResource(R.drawable.top_image);
             header.rightLayout.setVisibility(View.GONE);
+        }
+
+        mAdapter = new MessageAdapter(this);
+        mListView.setAdapter(mAdapter);
+        mListView.setOnItemClickListener(this);
+    }
+
+    @Override
+    protected void onInitData() {
+        if(isNetworkConnected()){
+            showLoading();
+            try{
+                ZcfgManager.getInstance().getMainPageZcfgData("", 2);
+            }catch (JSONException e){
+                e.printStackTrace();
+            }
+        }else{
+            showToast(R.string.wlywt);
         }
     }
 
@@ -93,10 +138,17 @@ public class MainUI extends ProjectBaseUI {
                 mLastPressBackTime = current;
                 showToast(R.string.zcdjtc);
             } else {
+                ZcfgManager.getInstance().mainPageClear();
                 finish();
             }
             return true;
         }
         return super.onKeyDown(keyCode, event);
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        Zcfg zcfg = ZcfgManager.getInstance().getMainPageList().get(position);
+        WebUI.startActivity(this, zcfg.getInfoid(), zcfg.getInfoname());
     }
 }
