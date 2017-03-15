@@ -1,5 +1,7 @@
 package cn.com.jinke.assist.me;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Message;
 import android.text.Editable;
@@ -66,6 +68,12 @@ public class LoginUI extends ProjectBaseUI {
         }else{
             setContentView(R.layout.ui_login);
         }
+    }
+
+    public final static void startActivity(Context aContext){
+
+        Intent intent = new Intent(aContext, LoginUI.class);
+        aContext.startActivity(intent);
     }
 
     @Override

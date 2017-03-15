@@ -38,6 +38,8 @@
     <string name="sy">首页</string>
     <string name="ss">搜索</string>
     <string name="tbt">清镇市特殊人群就业帮扶系统</string>
+    <string name="tc">退出</string>
+    <string name="qdtcm">确定退出？</string>
 
     <!-- Pull to refresh -->
     <string name="pull_to_refresh_footer_refreshing_label">加载中\u2026</string>

@@ -36,4 +36,5 @@ public interface MsgKey {
     //----------------- 首页数据刷新 ----------------
     public final int MAINPAGE_BASE = BASE + 6000;
     public final int MAINPAGE_MSG = MAINPAGE_BASE + 1;
+    public final int MAINPAGE_EXIT = MAINPAGE_BASE + 2;
 }

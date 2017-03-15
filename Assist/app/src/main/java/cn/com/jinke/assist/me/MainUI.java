@@ -25,7 +25,10 @@ import cn.com.jinke.assist.function.manager.ZcfgManager;
 import cn.com.jinke.assist.function.model.Zcfg;
 import cn.com.jinke.assist.manager.VersionManager;
 import cn.com.jinke.assist.me.adapter.MessageAdapter;
+import cn.com.jinke.assist.me.manager.MasterManager;
+import cn.com.jinke.assist.utils.MessageProxy;
 import cn.com.jinke.assist.web.WebUI;
+import cn.com.jinke.assist.customview.AppDialog;
 
 /**
  * Created by apple on 2017/1/19.
@@ -45,12 +48,15 @@ public class MainUI extends ProjectBaseUI implements OnItemClickListener {
     @ViewInject(R.id.gzfw_iv)
     private RelativeLayout mGzfwLayout = null;
 
+    @ViewInject(R.id.tc_iv)
+    private RelativeLayout mExitLayout = null;
+
     @ViewInject(R.id.listview)
     private ListViewForScrollView mListView = null;
 
     private MessageAdapter mAdapter = null;
     private long mLastPressBackTime;
-    private int[] MSG = new int[]{MAINPAGE_MSG};
+    private int[] MSG = new int[]{MAINPAGE_MSG, MAINPAGE_EXIT};
 
     @Override
     protected boolean handleMessage(Message msg) {
@@ -59,6 +65,9 @@ public class MainUI extends ProjectBaseUI implements OnItemClickListener {
                 dismissLoading();
                 mAdapter.setData(ZcfgManager.getInstance().getMainPageList());
                 mAdapter.notifyDataSetChanged();
+                break;
+            case MAINPAGE_EXIT:
+                finish();
                 break;
             default:
                 break;
@@ -71,7 +80,7 @@ public class MainUI extends ProjectBaseUI implements OnItemClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.ui_main);
         registerMessages(MSG);
-        //VersionManager.startCheckUpdate();
+        VersionManager.startCheckUpdate();
     }
 
     @Override
@@ -109,7 +118,7 @@ public class MainUI extends ProjectBaseUI implements OnItemClickListener {
         aContext.startActivity(intent);
     }
 
-    @Event(value = {R.id.sjcj_iv, R.id.jybf_iv, R.id.zcfg_iv, R.id.gzfw_iv})
+    @Event(value = {R.id.sjcj_iv, R.id.jybf_iv, R.id.zcfg_iv, R.id.gzfw_iv, R.id.tc_iv})
     private void onClick(View view){
         switch (view.getId()){
             case R.id.sjcj_iv:
@@ -124,6 +133,9 @@ public class MainUI extends ProjectBaseUI implements OnItemClickListener {
                 break;
             case R.id.jybf_iv:
                 JybfUI.startActivity(this);
+                break;
+            case R.id.tc_iv:
+                logout();
                 break;
             default:
                 break;
@@ -150,5 +162,21 @@ public class MainUI extends ProjectBaseUI implements OnItemClickListener {
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         Zcfg zcfg = ZcfgManager.getInstance().getMainPageList().get(position);
         WebUI.startActivity(this, zcfg.getInfoid(), zcfg.getInfoname());
+    }
+
+    private void logout(){
+        AppDialog dialog = new AppDialog(this,  getString(R.string.qdtcm));
+        dialog.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View v) {
+                if(v.getId() == R.id.ok){
+                    MasterManager.getInstance().logout();
+                    LoginUI.startActivity(MainUI.this);
+                    MessageProxy.sendEmptyMessage(MAINPAGE_EXIT);
+                }
+            }
+        });
+        dialog.show();
     }
 }
