@@ -65,6 +65,7 @@ public class LoginUI extends ProjectBaseUI {
         UserCard aUserCard = MasterManager.getInstance().getUserCard();
         if(aUserCard != null){
             MainUI.startActivity(this);
+            finish();
         }else{
             setContentView(R.layout.ui_login);
         }
